@@ -11,8 +11,8 @@ const socialMediaIcons = {
 function SocialButton({ socialMediaIcon }) {
 
     return (
-        <div className="icon-container">
-            <FontAwesomeIcon icon={socialMediaIcons[socialMediaIcon]} size="3x" color="black" />
+        <div>
+            <FontAwesomeIcon icon={socialMediaIcons[socialMediaIcon]} size="2x" color="black" className="m-2 p-3 rounded-circle border border-black"/>
         </div>
     )
 }
