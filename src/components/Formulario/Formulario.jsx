@@ -1,14 +1,12 @@
 import React from 'react'
 import { useState } from 'react'
 
-function Formulario({ onError, onSuccess}) {
+function Formulario({ onError, onSuccess }) {
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
     const [confirmPass, setConfirmPass] = useState('');
-
-    const isValidEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
     const validateSubmit = (event) => {
         event.preventDefault();
@@ -16,15 +14,10 @@ function Formulario({ onError, onSuccess}) {
         if(
             name.trim() === '' ||
             email.trim() === '' ||
-            pass.trim() === '' ||
-            confirmPass.trim() === ''
+            pass === '' ||
+            confirmPass === ''
         ) {
             onError('Completa todos los campos!');
-            return;
-        }
-
-        if(isValidEmail.test(email)) {
-            onError('Formato de email no válido');
             return;
         }
 
@@ -32,7 +25,7 @@ function Formulario({ onError, onSuccess}) {
             onError('Las contraseñas deben ser iguales');
             return;
         }
-        onSuccess('Registro completado exitosamente!')
+        onSuccess('Registro completado exitosamente!');
         setName('');
         setEmail('');
         setPass('');
@@ -41,7 +34,7 @@ function Formulario({ onError, onSuccess}) {
     }
 
     return (
-        <div className=''>
+        <div>
             <form onSubmit={validateSubmit}>
                 <div className='form-group'>
                     <div className='col-xs-4'>

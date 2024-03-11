@@ -1,10 +1,10 @@
-function Alert ({ alertMessage, alertCase}) {
+const Alert = ({ tipo, mensaje }) => {
     return (
-        <div>
-            <div className={`alert-${alertCase}`}>
-                {alertMessage}
-            </div>
+      <div className="w-75">
+        <div className={`alert ${tipo}`} role="alert">
+            {mensaje}
         </div>
+      </div>
     );
   };
   
