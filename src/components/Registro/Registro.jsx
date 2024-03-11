@@ -1,6 +1,7 @@
 import React from 'react'
 import SocialButton from '../SocialButton/SocialButton'
 import Formulario from '../Formulario/Formulario';
+import Alert from '../Alert/Alert';
 
 function Registro() {
   return (
@@ -15,9 +16,13 @@ function Registro() {
 
         <h3 className="text-center fs-6">O usa tu email para registrarte</h3>
 
-        <Formulario />
+        <Formulario
+            
+        />
+
     </div>
   )
+
 }
 
 export default Registro;
