@@ -8,6 +8,8 @@ function Formulario({ onError, onSuccess }) {
     const [pass, setPass] = useState('');
     const [confirmPass, setConfirmPass] = useState('');
 
+    const isValidEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
     const validateSubmit = (event) => {
         event.preventDefault();
 
@@ -19,6 +21,10 @@ function Formulario({ onError, onSuccess }) {
         ) {
             onError('Completa todos los campos!');
             return;
+        }
+
+        if (isValidEmail.test(document.getElementById('email'))) {
+            onError('Formato de correo incorrecto')
         }
 
         if (pass !== confirmPass) {
@@ -54,6 +60,7 @@ function Formulario({ onError, onSuccess }) {
                             type="email"
                             name='email'
                             className='form-control'
+                            id="email"
                             placeholder='mail@dominio.com'
                             value={email}
                             onChange={(event) => setEmail(event.target.value)}
